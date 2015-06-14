@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+import os, os.path as path, sys
+
+if len(sys.argv) < 3 :
+	print "Proper arguments missing. "
+	print "Correct syntax: "
+	print sys.argv[0], " <From-path> <To-path>"
+	sys.exit(1)
+
+toLink = os.path.realpath(sys.argv[1])
+linkPath = os.path.abspath(sys.argv[2])
+
+if not path.exists(toLink) :
+	print "Incorrect From-path"
+	sys.exit(1)
+
+if not path.isdir(linkPath) and not path.isdir(path.dirname(linkPath)) :
+	print "Incorrent To-path"
+	sys.exit(1)
+
+if path.islink(linkPath) :
+	print "Overwriting preexisting link ..."
+	os.remove(linkPath)
+	
+if path.isdir(linkPath) :
+	linkPath = linkPath + os.sep + path.basename(toLink)
+	if path.islink(linkPath) :
+		print "Overwriting preexisting link ..."
+		os.remove(linkPath)
+
+os.symlink(toLink, linkPath)
+
+print "Symlink to " + toLink + " created at " + linkPath
+sys.exit(0)

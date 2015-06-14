@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+read url filename <<< $@
+
+if [ -z "$filename" ]; then 
+	read filename <<< `echo $@ | awk -F '/' '{print $NF}'`
+fi
+
+curlopts=$url' -O '$filename 
+
+{
+    filesize=`ls -l $filename |awk '{print $5}'`
+} 2>/dev/null
+
+if [ -n "$filesize" ]; then 
+	echo -e "File $filename partially downloaded, resuming... from position $filesize\n"
+	curlopts=$curlopts' -C'$filesize
+fi
+
+curl $curlopts
+echo -e "Downloaded file $filename\n"
