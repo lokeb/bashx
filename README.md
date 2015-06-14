@@ -25,8 +25,6 @@ Downloader is a bash script that uses curl to download a file with support to re
 
 It is useful in Mac that does not have wget, but curl, which is a little complex to use.
 
-All the tools have been tested on Mac 10.10, but should work on all unix platforms.
-
 ###Basic syntax:
 	
 	downloader http://www.example.com/somefile.dmg
@@ -38,3 +36,5 @@ An output file name can be provided as simply as this :
 Or :
 
 	downloader http://www.example.com/somefile.dmg ~/Downloads/somefile_x.dmg
+
+All the tools have been tested on Mac 10.10, but should work on all unix platforms.
