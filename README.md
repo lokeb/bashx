@@ -3,7 +3,7 @@ Tools to fulfill small gaps that are encountered in everyday computing
 
 ##xsymlink
 
-Xsymlink creates a symbolic link with an absolute path to any given file path with a relative or absolute path. The benefit of an absolute path while creating a symbolic link is that the link file can be moved to any location and it still maintains the correct path.
+Xsymlink creates a symbolic link with an absolute path to any given relative or absolute file path. The benefit of an absolute path in a symbolic link is that the link file can be moved to any location and it still maintains the correct path.
 
 ###Basic syntax:
 
@@ -34,7 +34,7 @@ Or :
 
 Downloader is a bash script that uses curl to download a file with support to resume partial downloads automatically.
 
-It is useful in Mac that does not have wget, but curl, which is a little complex to use.
+It is useful in Mac that does not have wget, but curl which is a little complex to use.
 
 ###Basic syntax:
 	
