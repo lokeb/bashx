@@ -17,7 +17,18 @@ This will create a symbolic link with an absolute path
 If the linked file points to another file, the link will be resolved before being linked again, i.e., if /etc/apache.conf points to /etc/apache/apache.conf, then the link will point as follows:
 
 	./apache.conf -> /etc/apache/apache.conf
+
+A link with another name could be created as :
 	
+	xsymlink /etc/apache.conf link_to_apache.conf
+
+Or :
+
+	xsymlink /etc/apache.conf ~/link_to_apache.conf
+
+Or :
+
+	xsymlink /etc/apache.conf /etc/local/link_to_apache.conf
 
 ##downloader
 
