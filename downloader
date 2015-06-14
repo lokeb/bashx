@@ -6,7 +6,7 @@ if [ -z "$filename" ]; then
 	read filename <<< `echo $@ | awk -F '/' '{print $NF}'`
 fi
 
-curlopts=$url' -O '$filename 
+curlopts=$url' -o '$filename 
 
 {
     filesize=`ls -l $filename |awk '{print $5}'`
